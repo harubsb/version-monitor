@@ -21,11 +21,19 @@ React Native + Expo アプリの各種バージョンが **いつまで使える
 
 ### チーム運用フロー（メンバー向け）
 
-1. リポジトリを `git pull`
-2. `node scripts/extract-local.mjs アプリA=<パス> アプリA_K=<パス> アプリB=<パス>`
-   （Claude Code を使うなら「3アプリのパスは〇〇」と伝えれば実行〜コミットまで代行可）
-3. `git add current-versions.yml && git commit && git push`
-   → あとは毎日、クラウドが `STATUS.md` を最新の期限で更新します
+アプリのバージョンが変わったときだけ、コードがある人が `current-versions.yml` を更新して push します。
+
+1. リポジトリを最新化（GitHub Desktop なら `Fetch/Pull origin`、CLI なら `git pull`）
+2. 現在バージョンを抽出（初回のみ `npm install` 済みであること）
+   ```bash
+   node scripts/extract-local.mjs アプリA=<パス> アプリA_K=<パス> アプリB=<パス>
+   ```
+   （Claude Code を使うなら「3アプリのパスは〇〇」と伝えれば実行まで代行可）
+3. `current-versions.yml` をコミット＆push
+   - **GitHub Desktop**: 変更を確認 → Summary 入力 → `Commit to main` → `Push origin`
+   - **CLI**: `git add current-versions.yml && git commit -m "update versions" && git push`
+
+   → あとは毎日、クラウドが `STATUS.md` を最新の期限で更新します。
 
 ## 監視している項目
 
@@ -54,29 +62,42 @@ React Native + Expo アプリの各種バージョンが **いつまで使える
 > 期限の毎日自動更新をクラウドで動かすための設定です。**1人がやれば全員に効きます。**
 > ワークフロー定義（`.github/workflows/version-check.yml`）はリポジトリに含まれているので、追加でファイルを作る必要はありません。
 
+> ⚠️ **最初の注意：設定する `Settings` は「リポジトリの設定」です。**
+> GitHub 右上のアイコン →`Settings` は**アカウント設定**で、ここには Actions の権限設定はありません。
+> 必ず **リポジトリ画面**（`Code / Issues / … / Settings` というタブが並ぶ画面）の **一番右の `Settings`** を開いてください。
+> 見分け方：左上が「(ユーザー名) Your personal account」＝アカウント設定（誤）、`(ユーザー名) / version-monitor` のタブ内 `Settings`＝リポジトリ設定（正）。
+
 ### 手順
 
 1. **書き込み権限を有効化（最重要）**
-   リポジトリの `Settings`（設定）→ 左メニュー `Actions` → `General` を開く →
-   一番下の **「Workflow permissions」** で **`Read and write permissions`** を選択 → `Save`。
+   リポジトリ設定 → 左メニュー「Code and automation」内の `Actions` → `General` を開く
+   （直リンク: `https://github.com/<ユーザー名>/version-monitor/settings/actions`）→
+   ページ最下部の **「Workflow permissions」** で **`Read and write permissions`** を選択 → `Save`。
    - これが無いと、ワークフローが `STATUS.md` を自動コミットできず `403` エラーになります。
 
-2. **Actions を有効化**
-   上部タブ `Actions` を開く → 初回は「I understand my workflows, go ahead and enable them」が出たらクリックして有効化。
+2. **Actions タブを開く**
+   上部タブ `Actions` を開く。`version-check` が一覧に見えていれば有効です。
+   - もし「I understand my workflows, go ahead and enable them」という確認ボタンが出た場合のみ、それを押して有効化（出なければ不要）。
 
 3. **初回実行（動作確認）**
-   左の一覧から **`version-check`** を選択 → 右上 **`Run workflow`** → ブランチ `main` のまま `Run workflow` を押す。
-   - 1〜2分で完了し、`STATUS.md` が生成・コミットされます。`Code` タブで `STATUS.md` を開いて内容を確認。
+   `Actions` → 左の **`version-check`** をクリック → 右側に出る青い帯
+   **「This workflow has a `workflow_dispatch` event trigger.」** の右端 **`Run workflow`**（ドロップダウン）→
+   ブランチ `main` のまま 緑の **`Run workflow`** を押す。
+   - 数秒〜数分で実行が一覧に出ます（黄●＝実行中 → 緑✓＝成功）。
+   - 成功後、`Code` タブ → `STATUS.md` の先頭が **`（手動実行）＋実行時刻`** に変わっていれば OK。
+   - （補足）push 直後の `STATUS.md` は `（ローカル実行）` 表記のことがありますが、Actions が一度動けば `（手動実行）`／毎朝は `（自動(毎日)）` に切り替わります。
 
 4. **以降は自動**
-   毎日自動（cron, JST 9:00 目安）で `STATUS.md` が更新されます。すぐ更新したいときは手順3の `Run workflow` をいつでも押せます。
+   毎日自動（cron, JST 9:00 目安／GitHub 側の都合で多少遅延あり）で `STATUS.md` が更新されます。
+   すぐ更新したいときは手順3の `Run workflow` をいつでも押せます。
 
 ### うまくいかないとき
 
 | 症状 | 対処 |
 |------|------|
+| `Settings` に `Actions` が無い | 開いているのが**アカウント設定**。リポジトリ画面のタブ内 `Settings` を開く（上の注意参照） |
 | 自動コミットで `403` / `permission denied` | 手順1の `Read and write permissions` が未設定。設定して再実行 |
-| `Run workflow` ボタンが出ない | `Actions` が無効。手順2で有効化。ワークフローは `main`（デフォルトブランチ）に必要 |
+| `Run workflow` ボタンが出ない | `version-check` を選択してから右側の青帯を確認。ワークフローは `main`（デフォルトブランチ）に必要 |
 | スケジュールが止まった | 公開リポジトリは 60 日間コミットが無いと cron 停止。手動 `Run workflow` で再開（通常は毎日コミットされるため起きません） |
 
 ---

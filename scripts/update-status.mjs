@@ -194,6 +194,40 @@ async function main() {
   const ctx = { expo, android, apple, gradle, thresholds, today, npmLatest, trackedLibs };
   const appModels = apps.map((app) => buildApp(app, ctx));
 
+  // 要対応サマリー（期限あり・未対応のみ）／要確認（現在値が未設定で判定不可）
+  const actions = [];
+  const checks = [];
+  for (const app of apps) {
+    // Android Target SDK（必須未達なら要対応）
+    if (android.requiredApiLevel != null && app.androidTargetSdk) {
+      if (Number(app.androidTargetSdk) < android.requiredApiLevel) {
+        actions.push({
+          label: app.label,
+          item: 'Android Target SDK',
+          current: String(app.androidTargetSdk),
+          required: `API ${android.requiredApiLevel}`,
+          deadline: android.deadline,
+          days: daysUntil(android.deadline, today),
+        });
+      }
+    }
+    // iOS SDK / Xcode（ビルド要件。current 未設定なら要確認）
+    if (apple.requiredXcode != null) {
+      if (app.xcode && Number(app.xcode) < apple.requiredXcode) {
+        actions.push({
+          label: app.label,
+          item: 'iOS SDK / Xcode',
+          current: `Xcode ${app.xcode}`,
+          required: `Xcode ${apple.requiredXcode}`,
+          deadline: apple.deadline,
+          days: daysUntil(apple.deadline, today),
+        });
+      } else if (!app.xcode) {
+        checks.push({ label: app.label, item: 'iOS SDK / Xcode', deadline: apple.deadline });
+      }
+    }
+  }
+
   const store = {
     androidReq: android.requiredApiLevel,
     androidDeadline: android.deadline,
@@ -217,7 +251,7 @@ async function main() {
   const ev = process.env.GITHUB_EVENT_NAME;
   const trigger = ev === 'schedule' ? '自動(毎日)' : ev === 'workflow_dispatch' ? '手動実行' : 'ローカル実行';
 
-  const model = { updatedAt: today, generatedAt: nowJstStamp(), trigger, store, apps: appModels, notes };
+  const model = { updatedAt: today, generatedAt: nowJstStamp(), trigger, store, actions, checks, apps: appModels, notes };
   writeFileSync(join(ROOT, 'STATUS.md'), renderStatus(model), 'utf8');
   console.log(`STATUS.md updated (${today}). apps=${appModels.length}`);
 }

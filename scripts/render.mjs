@@ -15,6 +15,39 @@ export function renderStatus(model) {
   L.push(`- 最新: Expo SDK ${model.store.latestExpo ?? '不明'} / React Native ${model.store.latestRn ?? '不明'} / React ${model.store.latestReact ?? '不明'} / Gradle ${model.store.latestGradle ?? '不明'}`);
   L.push('');
 
+  // 要対応サマリー（期限あり・未対応のみ）。GitHub では diff ブロックの「-」行が赤字表示される。
+  L.push('## ⚠️ 要対応サマリー（期限あり・対応が必要な項目のみ）');
+  if (model.actions && model.actions.length) {
+    L.push('> [!CAUTION]');
+    L.push('> 申請・ビルドができなくなる可能性がある項目です。**赤字の行＝要対応**。早めの更新を。');
+    L.push('');
+    L.push('```diff');
+    for (const a of model.actions) {
+      const remain =
+        a.days == null
+          ? '期限不明'
+          : a.days < 0
+            ? `超過${Math.abs(a.days)}日（申請不可の可能性）`
+            : a.days === 0
+              ? '本日まで'
+              : `あと${a.days}日`;
+      L.push(`- ${a.label} / ${a.item}: 現在 ${a.current} → 必須 ${a.required} / 期限 ${a.deadline ?? '不明'} / ${remain}`);
+    }
+    L.push('```');
+  } else {
+    L.push('```diff');
+    L.push('+ 期限到来前に対応が必要な項目はありません');
+    L.push('```');
+  }
+  L.push('');
+  if (model.checks && model.checks.length) {
+    L.push('要確認（現在値が未設定で判定できない・期限あり）:');
+    for (const c of model.checks) {
+      L.push(`- ❓ ${c.label} / ${c.item}（期限 ${c.deadline ?? '不明'}）… \`current-versions.yml\` に現在値を入れると残り日数を判定します`);
+    }
+    L.push('');
+  }
+
   // アプリごとのセクション
   for (const app of model.apps) {
     L.push(`## ${app.label}`);
