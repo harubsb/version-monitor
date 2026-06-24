@@ -49,6 +49,38 @@ React Native + Expo アプリの各種バージョンが **いつまで使える
 - 追跡ライブラリは `config/tracked.yml` の **公開 OSS パッケージ名のみ**。社内/private パッケージ名は載せない。
 - `scripts/extract-local.mjs` はローカルフォルダを読みますが、書き出すのはバージョン番号だけで、パス等は残しません。
 
+## GitHub Actions セットアップ（初回のみ・管理者が1回だけ実施）
+
+> 期限の毎日自動更新をクラウドで動かすための設定です。**1人がやれば全員に効きます。**
+> ワークフロー定義（`.github/workflows/version-check.yml`）はリポジトリに含まれているので、追加でファイルを作る必要はありません。
+
+### 手順
+
+1. **書き込み権限を有効化（最重要）**
+   リポジトリの `Settings`（設定）→ 左メニュー `Actions` → `General` を開く →
+   一番下の **「Workflow permissions」** で **`Read and write permissions`** を選択 → `Save`。
+   - これが無いと、ワークフローが `STATUS.md` を自動コミットできず `403` エラーになります。
+
+2. **Actions を有効化**
+   上部タブ `Actions` を開く → 初回は「I understand my workflows, go ahead and enable them」が出たらクリックして有効化。
+
+3. **初回実行（動作確認）**
+   左の一覧から **`version-check`** を選択 → 右上 **`Run workflow`** → ブランチ `main` のまま `Run workflow` を押す。
+   - 1〜2分で完了し、`STATUS.md` が生成・コミットされます。`Code` タブで `STATUS.md` を開いて内容を確認。
+
+4. **以降は自動**
+   毎日自動（cron, JST 9:00 目安）で `STATUS.md` が更新されます。すぐ更新したいときは手順3の `Run workflow` をいつでも押せます。
+
+### うまくいかないとき
+
+| 症状 | 対処 |
+|------|------|
+| 自動コミットで `403` / `permission denied` | 手順1の `Read and write permissions` が未設定。設定して再実行 |
+| `Run workflow` ボタンが出ない | `Actions` が無効。手順2で有効化。ワークフローは `main`（デフォルトブランチ）に必要 |
+| スケジュールが止まった | 公開リポジトリは 60 日間コミットが無いと cron 停止。手動 `Run workflow` で再開（通常は毎日コミットされるため起きません） |
+
+---
+
 ## 使い方
 
 複数アプリに対応しています。`current-versions.yml` は `apps:` の配列で、各アプリは
