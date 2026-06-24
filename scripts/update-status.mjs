@@ -13,7 +13,7 @@ import { fetchAndroidRequirement } from './sources/android.mjs';
 import { fetchAppleRequirement } from './sources/apple.mjs';
 import { fetchLatestGradle } from './sources/gradle.mjs';
 import { renderStatus } from './render.mjs';
-import { daysUntil, deadlineLabel, statusEmoji, todayYmd, diffKind } from './lib/util.mjs';
+import { daysUntil, deadlineLabel, statusEmoji, todayYmd, nowJstStamp, diffKind } from './lib/util.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const loadYaml = (rel) => yaml.load(readFileSync(join(ROOT, rel), 'utf8')) || {};
@@ -213,7 +213,11 @@ async function main() {
     `Gradle 最新版: ${gradle.error ? `取得失敗(${gradle.error})` : gradle.source}`,
   ];
 
-  const model = { updatedAt: today, store, apps: appModels, notes };
+  // 実行トリガー（GitHub Actions の環境変数から判定。ローカル実行時は env なし）
+  const ev = process.env.GITHUB_EVENT_NAME;
+  const trigger = ev === 'schedule' ? '自動(毎日)' : ev === 'workflow_dispatch' ? '手動実行' : 'ローカル実行';
+
+  const model = { updatedAt: today, generatedAt: nowJstStamp(), trigger, store, apps: appModels, notes };
   writeFileSync(join(ROOT, 'STATUS.md'), renderStatus(model), 'utf8');
   console.log(`STATUS.md updated (${today}). apps=${appModels.length}`);
 }

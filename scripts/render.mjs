@@ -4,7 +4,8 @@
 
 export function renderStatus(model) {
   const L = [];
-  L.push(`# 📱 バージョン使用期限ステータス  (最終更新: ${model.updatedAt} / 手動実行)`);
+  L.push(`# 📱 バージョン使用期限ステータス`);
+  L.push(`最終更新: **${model.generatedAt}**（${model.trigger}） ／ 自動更新: 毎日 JST 9:00 頃`);
   L.push('');
 
   // 共通のストア要件・最新版

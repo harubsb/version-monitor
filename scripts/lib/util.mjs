@@ -55,6 +55,13 @@ export function todayYmd(date = new Date()) {
   return jst.toISOString().slice(0, 10);
 }
 
+// JST の "YYYY-MM-DD HH:mm JST"（生成時刻）
+export function nowJstStamp(date = new Date()) {
+  const jst = new Date(date.getTime() + 9 * 3600 * 1000);
+  const p = (n) => String(n).padStart(2, '0');
+  return `${jst.getUTCFullYear()}-${p(jst.getUTCMonth() + 1)}-${p(jst.getUTCDate())} ${p(jst.getUTCHours())}:${p(jst.getUTCMinutes())} JST`;
+}
+
 // "3.5.23" → [3,5,23]
 function parts(v) {
   return String(v).replace(/^[^\d]*/, '').split('.').map((n) => parseInt(n, 10) || 0);
