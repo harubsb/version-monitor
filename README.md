@@ -116,9 +116,32 @@ React Native + Expo アプリの各種バージョンが **いつまで使える
 node scripts/extract-local.mjs アプリA=/path/to/app-a アプリA_K=/path/to/app-a-admin アプリB=/path/to/app-b
 ```
 各フォルダの `package.json`（expo / react-native / react / 追跡ライブラリ）、`app.json` の
-`expo-build-properties`、`eas.json` の `ANDROID_TARGET_SDK_VERSION` から抽出します。
-自動取得できない項目（`xcode` など）は既存値を保持するので、必要に応じて手入力してください。
+`expo-build-properties`、`eas.json` の `ANDROID_TARGET_SDK_VERSION`、`android/build.gradle`・
+`gradle-wrapper.properties`・`android/gradle.properties`・`ios/Podfile` から抽出します。
 既存ラベルは上書き更新、新規ラベルは追記されます。
+
+### 1.5 手入力が必要な項目：iOS の `xcode`（ビルドに使う Xcode）
+
+`iOS SDK / Xcode` の「現在」だけは**リポジトリから取得できません**（ビルドに使う Mac の Xcode、
+または EAS のビルドイメージで決まり、コードに記録されないため）。`STATUS.md` では値が無い間
+「要確認 ❓」と表示されます。判明したら手入力してください。
+
+**調べ方**
+- ローカルビルドの場合：ビルドに使う Mac で `xcodebuild -version`（または Xcode →「About Xcode」）の `Xcode 16.x` の数字
+- EAS Build の場合：直近ビルドログ冒頭の「Xcode」表記、または `eas.json` の `build.production.ios.image`
+
+**入力手順（pull してから）**
+1. リポジトリを最新化（GitHub Desktop の `Pull origin`、または `git pull`）
+2. `current-versions.yml` を開き、該当アプリの `xcode:` にメジャー番号を記入（例 `xcode: "16"`）
+   ```yaml
+   - label: "アプリA"
+     # ... 省略 ...
+     xcode: "16"     # ← ビルドに使っている Xcode の番号を入れる
+   ```
+3. 保存して push（GitHub Desktop: `Commit to main` → `Push origin` ／ CLI: `git add current-versions.yml && git commit -m "set xcode" && git push`）
+   → 次回の自動更新（または手動 `Run workflow`）で「要確認 ❓」が外れ、必須 Xcode との比較で残り日数・赤字判定が付きます。
+
+> 数値はメジャー番号でOK（例 `16`、`26`）。最新でビルドしていれば「対応済み」、古ければ赤字で警告されます。
 
 ### 2. STATUS.md を更新する
 
