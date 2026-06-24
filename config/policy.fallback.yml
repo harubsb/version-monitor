@@ -1,0 +1,19 @@
+# ストア申請期限のフォールバック定数。
+# Google Play / Apple は公式の綺麗な API が無いため、Web スクレイプに失敗したときは
+# ここの値を使用します（STATUS.md に「fallback値・要手動確認」と明記されます）。
+# 公式ページを確認したら lastVerified を更新してください。
+
+android:
+  # Google Play: 既存アプリの更新が必要になる Target API レベルとその期限
+  requiredApiLevel: 35
+  deadline: "2025-08-31"   # 新規/更新が API35 必須になった日（延長申請は 2025-11-01 まで）
+  source: "https://developer.android.com/google/play/requirements/target-sdk"
+  lastVerified: "2026-06-24"
+
+apple:
+  # Apple: アップロードに必要な Xcode / iOS SDK
+  requiredXcode: 16
+  requiredIosSdk: 18
+  deadline: "2025-04-24"   # Xcode16 / iOS18 SDK でのビルドが必須になった日
+  source: "https://developer.apple.com/news/upcoming-requirements/"
+  lastVerified: "2026-06-24"

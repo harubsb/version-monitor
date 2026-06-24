@@ -1,0 +1,16 @@
+# 追跡対象の公開 OSS ライブラリのホワイトリストと、期限ステータスのしきい値。
+# ★ここに載せたパッケージ名だけが npm で最新版を調べられ、STATUS.md に出力されます。
+# ★社内/private パッケージ名は絶対に載せないこと（public リポジトリで公開されるため）。
+
+thresholds:
+  warningDays: 90   # 残りこの日数を切ると 🟡 警告
+  criticalDays: 30  # 残りこの日数を切ると 🔴 危険
+
+# 追跡する公開ライブラリ名（current-versions.yml の各アプリ libraries と対応）
+libraries:
+  - "@react-navigation/native"
+  - "@react-navigation/bottom-tabs"
+  - react-native-safe-area-context
+  - react-native-screens
+  - react-native-reanimated
+  - react-native-gesture-handler

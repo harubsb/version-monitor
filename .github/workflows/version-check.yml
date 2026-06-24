@@ -1,0 +1,42 @@
+name: version-check
+
+# 毎日自動（cron）＋手動実行。期限の再計算・最新版チェックをクラウドで毎日行う。
+# ※現在バージョン(current-versions.yml)の更新は、各メンバーがローカルで extract-local.mjs を
+#   実行して push する運用（クラウドからローカルのアプリフォルダは見えないため）。
+on:
+  schedule:
+    - cron: "0 0 * * *"   # 毎日 UTC 0:00（JST 9:00）に実行
+  workflow_dispatch:
+
+permissions:
+  contents: write   # STATUS.md をコミットするため
+
+jobs:
+  update-status:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Update STATUS.md (調査 → 生成)
+        run: node scripts/update-status.mjs
+
+      - name: Commit STATUS.md if changed
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain STATUS.md)" ]; then
+            git add STATUS.md
+            git commit -m "chore: update STATUS.md ($(date -u +%Y-%m-%d))"
+            git push
+          else
+            echo "STATUS.md に変更なし"
+          fi
