@@ -1,8 +1,8 @@
 # 📱 バージョン使用期限ステータス
-最終更新: **2026-07-21 11:55 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
+最終更新: **2026-07-22 11:53 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
 
 ## ストア要件・最新版（共通・自動取得）
-- Android Target SDK 必須: API 36（期限 2026-11-01）
+- Android Target SDK 必須: API 35（期限 2025-08-31）
 - Apple ビルド要件: Xcode 26 / iOS 18 SDK（期限 2026-04-28）
 - 最新: Expo SDK 57 / React Native 0.86.0 / React 19.2.3 / Gradle 9.6.1
 
@@ -11,9 +11,7 @@
 > 申請・ビルドができなくなる可能性がある項目です。**赤字の行＝要対応**。早めの更新を。
 
 ```diff
-- アプリA / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと103日
-- アプリA_K / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと103日
-- アプリB / Android Target SDK: 現在 33 → 必須 API 36 / 期限 2026-11-01 / あと103日
+- アプリB / Android Target SDK: 現在 33 → 必須 API 35 / 期限 2025-08-31 / 超過325日（申請不可の可能性）
 ```
 
 要確認（現在値が未設定で判定できない・期限あり）:
@@ -28,7 +26,7 @@
 | React Native | 0.76.6 | 0.86.0 | — | 🟡 |
 | React | 18.3.1 | 19.2.3 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 35 | 36 | 2026-11-01 (103日後) | 🟢 |
+| Android Target SDK | 35 | 35 | 対応済み | 🟢 |
 | Android minSdk | 24 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.9.24 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
@@ -51,7 +49,7 @@
 | React Native | 0.79.2 | 0.86.0 | — | 🟡 |
 | React | 19.0.0 | 19.2.3 | — | 🟡 |
 | New Architecture | 有効 | 有効 | 対応済み | 🟢 |
-| Android Target SDK | 35 | 36 | 2026-11-01 (103日後) | 🟢 |
+| Android Target SDK | 35 | 35 | 対応済み | 🟢 |
 | Android minSdk | — | — | 参考（低いほど対応端末が広い） | ⚪ |
 | Kotlin | — | — | 参考（ビルドツールチェーン） | ⚪ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
@@ -76,7 +74,7 @@
 | React Native | 0.71.6 | 0.86.0 | — | 🟡 |
 | React | 18.2.0 | 19.2.3 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 33 | 36 | 2026-11-01 (103日後) | 🟢 |
+| Android Target SDK | 33 | 35 | 2025-08-31 (超過(325日前)) | ⚫ |
 | Android minSdk | 21 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.6.0 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | 7.3.1 | — | 参考（ビルドツールチェーン） | ℹ️ |
@@ -109,7 +107,7 @@
 - **ライブラリ**: 主要な公開 OSS の現在/最新と更新種別(major/minor/patch)
 
 ## 補足 / 自動取得の信頼性
-- Android 期限: スクレイプ成功 / source: https://developer.android.com/google/play/requirements/target-sdk
+- Android 期限: スクレイプ解析が不十分なため fallback 値を使用（要手動確認） / source: https://developer.android.com/google/play/requirements/target-sdk
 - Apple 期限: スクレイプ成功 / source: https://developer.apple.com/news/upcoming-requirements/
 - 最新版（Expo SDK / RN / React / ライブラリ）: Expo API + npm registry
 - Gradle 最新版: https://services.gradle.org/versions/current
