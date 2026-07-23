@@ -1,5 +1,5 @@
 # 📱 バージョン使用期限ステータス
-最終更新: **2026-07-22 11:53 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
+最終更新: **2026-07-23 12:14 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
 
 ## ストア要件・最新版（共通・自動取得）
 - Android Target SDK 必須: API 35（期限 2025-08-31）
@@ -11,7 +11,7 @@
 > 申請・ビルドができなくなる可能性がある項目です。**赤字の行＝要対応**。早めの更新を。
 
 ```diff
-- アプリB / Android Target SDK: 現在 33 → 必須 API 35 / 期限 2025-08-31 / 超過325日（申請不可の可能性）
+- アプリB / Android Target SDK: 現在 33 → 必須 API 35 / 期限 2025-08-31 / 超過326日（申請不可の可能性）
 ```
 
 要確認（現在値が未設定で判定できない・期限あり）:
@@ -64,7 +64,7 @@
 | @react-navigation/bottom-tabs | 7.1.3 | 7.18.13 | minor |
 | react-native-safe-area-context | 5.4.0 | 5.8.0 | minor |
 | react-native-screens | 4.10.0 | 4.26.2 | minor |
-| react-native-reanimated | 3.17.4 | 4.5.2 | major |
+| react-native-reanimated | 3.17.4 | 4.5.3 | major |
 | react-native-gesture-handler | 2.24.0 | 3.1.0 | major |
 
 ## アプリB
@@ -74,7 +74,7 @@
 | React Native | 0.71.6 | 0.86.0 | — | 🟡 |
 | React | 18.2.0 | 19.2.3 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 33 | 35 | 2025-08-31 (超過(325日前)) | ⚫ |
+| Android Target SDK | 33 | 35 | 2025-08-31 (超過(326日前)) | ⚫ |
 | Android minSdk | 21 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.6.0 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | 7.3.1 | — | 参考（ビルドツールチェーン） | ℹ️ |
@@ -89,7 +89,7 @@
 | @react-navigation/bottom-tabs | 6.0.9 | 7.18.13 | major |
 | react-native-safe-area-context | 4.5.0 | 5.8.0 | major |
 | react-native-screens | 3.20.0 | 4.26.2 | major |
-| react-native-reanimated | 3.4.2 | 4.5.2 | major |
+| react-native-reanimated | 3.4.2 | 4.5.3 | major |
 | react-native-gesture-handler | 2.12.1 | 3.1.0 | major |
 
 ## 凡例
