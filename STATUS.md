@@ -1,19 +1,19 @@
 # 📱 バージョン使用期限ステータス
-最終更新: **2026-08-06 11:48 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
+最終更新: **2026-08-07 11:47 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
 
 ## ストア要件・最新版（共通・自動取得）
 - Android Target SDK 必須: API 36（期限 2026-11-01）
 - Apple ビルド要件: Xcode 26 / iOS 18 SDK（期限 2026-04-28）
-- 最新: Expo SDK 57 / React Native 0.86.2 / React 19.2.3 / Gradle 9.6.1
+- 最新: Expo SDK 57 / React Native 0.86.2 / React 19.2.3 / Gradle 9.7.0
 
 ## ⚠️ 要対応サマリー（期限あり・対応が必要な項目のみ）
 > [!CAUTION]
 > 申請・ビルドができなくなる可能性がある項目です。**赤字の行＝要対応**。早めの更新を。
 
 ```diff
-- アプリA / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと87日
-- アプリA_K / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと87日
-- アプリB / Android Target SDK: 現在 33 → 必須 API 36 / 期限 2026-11-01 / あと87日
+- アプリA / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと86日
+- アプリA_K / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと86日
+- アプリB / Android Target SDK: 現在 33 → 必須 API 36 / 期限 2026-11-01 / あと86日
 ```
 
 要確認（現在値が未設定で判定できない・期限あり）:
@@ -28,11 +28,11 @@
 | React Native | 0.76.6 | 0.86.2 | — | 🟡 |
 | React | 18.3.1 | 19.2.3 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 35 | 36 | 2026-11-01 (87日後) | 🟡 |
+| Android Target SDK | 35 | 36 | 2026-11-01 (86日後) | 🟡 |
 | Android minSdk | 24 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.9.24 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
-| Gradle | 8.10.2 | 9.6.1 | — | 🟡 |
+| Gradle | 8.10.2 | 9.7.0 | — | 🟡 |
 | iOS Deployment Target | 15.1 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | iOS SDK / Xcode | — | Xcode 26 / iOS 18 SDK | 未設定（期限 2026-04-28）要確認 | ⚪ |
 
@@ -51,11 +51,11 @@
 | React Native | 0.79.2 | 0.86.2 | — | 🟡 |
 | React | 19.0.0 | 19.2.3 | — | 🟡 |
 | New Architecture | 有効 | 有効 | 対応済み | 🟢 |
-| Android Target SDK | 35 | 36 | 2026-11-01 (87日後) | 🟡 |
+| Android Target SDK | 35 | 36 | 2026-11-01 (86日後) | 🟡 |
 | Android minSdk | — | — | 参考（低いほど対応端末が広い） | ⚪ |
 | Kotlin | — | — | 参考（ビルドツールチェーン） | ⚪ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
-| Gradle | — | 9.6.1 | ネイティブ未コミット/未設定 | ⚪ |
+| Gradle | — | 9.7.0 | ネイティブ未コミット/未設定 | ⚪ |
 | iOS Deployment Target | — | — | 参考（低いほど対応端末が広い） | ⚪ |
 | iOS SDK / Xcode | — | Xcode 26 / iOS 18 SDK | 未設定（期限 2026-04-28）要確認 | ⚪ |
 
@@ -76,11 +76,11 @@
 | React Native | 0.71.6 | 0.86.2 | — | 🟡 |
 | React | 18.2.0 | 19.2.3 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 33 | 36 | 2026-11-01 (87日後) | 🟡 |
+| Android Target SDK | 33 | 36 | 2026-11-01 (86日後) | 🟡 |
 | Android minSdk | 21 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.6.0 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | 7.3.1 | — | 参考（ビルドツールチェーン） | ℹ️ |
-| Gradle | 7.5.1 | 9.6.1 | — | 🟡 |
+| Gradle | 7.5.1 | 9.7.0 | — | 🟡 |
 | iOS Deployment Target | 13.0 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | iOS SDK / Xcode | — | Xcode 26 / iOS 18 SDK | 未設定（期限 2026-04-28）要確認 | ⚪ |
 
