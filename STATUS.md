@@ -1,17 +1,19 @@
 # 📱 バージョン使用期限ステータス
-最終更新: **2026-08-19 10:23 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
+最終更新: **2026-08-20 10:22 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
 
 ## ストア要件・最新版（共通・自動取得）
-- Android Target SDK 必須: API 35（期限 2025-08-31）
+- Android Target SDK 必須: API 36（期限 2026-11-01）
 - Apple ビルド要件: Xcode 26 / iOS 18 SDK（期限 2026-04-28）
-- 最新: Expo SDK 57 / React Native 0.86.2 / React 19.2.3 / Gradle 9.7.0
+- 最新: Expo SDK 57 / React Native 0.86.2 / React 19.2.3 / Gradle 9.7.1
 
 ## ⚠️ 要対応サマリー（期限あり・対応が必要な項目のみ）
 > [!CAUTION]
 > 申請・ビルドができなくなる可能性がある項目です。**赤字の行＝要対応**。早めの更新を。
 
 ```diff
-- アプリB / Android Target SDK: 現在 33 → 必須 API 35 / 期限 2025-08-31 / 超過353日（申請不可の可能性）
+- アプリA / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと73日
+- アプリA_K / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / あと73日
+- アプリB / Android Target SDK: 現在 33 → 必須 API 36 / 期限 2026-11-01 / あと73日
 ```
 
 要確認（現在値が未設定で判定できない・期限あり）:
@@ -26,19 +28,19 @@
 | React Native | 0.76.6 | 0.86.2 | — | 🟡 |
 | React | 18.3.1 | 19.2.3 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 35 | 35 | 対応済み | 🟢 |
+| Android Target SDK | 35 | 36 | 2026-11-01 (73日後) | 🟡 |
 | Android minSdk | 24 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.9.24 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
-| Gradle | 8.10.2 | 9.7.0 | — | 🟡 |
+| Gradle | 8.10.2 | 9.7.1 | — | 🟡 |
 | iOS Deployment Target | 15.1 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | iOS SDK / Xcode | — | Xcode 26 / iOS 18 SDK | 未設定（期限 2026-04-28）要確認 | ⚪ |
 
 ライブラリ更新状況:
 | パッケージ | 現在 | 最新 | 種別 |
 |------|------|------|------|
-| @react-navigation/native | 6.0.6 | 7.3.16 | major |
-| @react-navigation/bottom-tabs | 6.0.9 | 7.18.16 | major |
+| @react-navigation/native | 6.0.6 | 7.3.17 | major |
+| @react-navigation/bottom-tabs | 6.0.9 | 7.18.17 | major |
 | react-native-safe-area-context | 4.12.0 | 5.9.1 | major |
 | react-native-screens | 4.4.0 | 4.27.0 | minor |
 
@@ -49,19 +51,19 @@
 | React Native | 0.79.2 | 0.86.2 | — | 🟡 |
 | React | 19.0.0 | 19.2.3 | — | 🟡 |
 | New Architecture | 有効 | 有効 | 対応済み | 🟢 |
-| Android Target SDK | 35 | 35 | 対応済み | 🟢 |
+| Android Target SDK | 35 | 36 | 2026-11-01 (73日後) | 🟡 |
 | Android minSdk | — | — | 参考（低いほど対応端末が広い） | ⚪ |
 | Kotlin | — | — | 参考（ビルドツールチェーン） | ⚪ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
-| Gradle | — | 9.7.0 | ネイティブ未コミット/未設定 | ⚪ |
+| Gradle | — | 9.7.1 | ネイティブ未コミット/未設定 | ⚪ |
 | iOS Deployment Target | — | — | 参考（低いほど対応端末が広い） | ⚪ |
 | iOS SDK / Xcode | — | Xcode 26 / iOS 18 SDK | 未設定（期限 2026-04-28）要確認 | ⚪ |
 
 ライブラリ更新状況:
 | パッケージ | 現在 | 最新 | 種別 |
 |------|------|------|------|
-| @react-navigation/native | 7.0.13 | 7.3.16 | minor |
-| @react-navigation/bottom-tabs | 7.1.3 | 7.18.16 | minor |
+| @react-navigation/native | 7.0.13 | 7.3.17 | minor |
+| @react-navigation/bottom-tabs | 7.1.3 | 7.18.17 | minor |
 | react-native-safe-area-context | 5.4.0 | 5.9.1 | minor |
 | react-native-screens | 4.10.0 | 4.27.0 | minor |
 | react-native-reanimated | 3.17.4 | 4.5.3 | major |
@@ -74,19 +76,19 @@
 | React Native | 0.71.6 | 0.86.2 | — | 🟡 |
 | React | 18.2.0 | 19.2.3 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 33 | 35 | 2025-08-31 (超過(353日前)) | ⚫ |
+| Android Target SDK | 33 | 36 | 2026-11-01 (73日後) | 🟡 |
 | Android minSdk | 21 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.6.0 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | 7.3.1 | — | 参考（ビルドツールチェーン） | ℹ️ |
-| Gradle | 7.5.1 | 9.7.0 | — | 🟡 |
+| Gradle | 7.5.1 | 9.7.1 | — | 🟡 |
 | iOS Deployment Target | 13.0 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | iOS SDK / Xcode | — | Xcode 26 / iOS 18 SDK | 未設定（期限 2026-04-28）要確認 | ⚪ |
 
 ライブラリ更新状況:
 | パッケージ | 現在 | 最新 | 種別 |
 |------|------|------|------|
-| @react-navigation/native | 6.0.6 | 7.3.16 | major |
-| @react-navigation/bottom-tabs | 6.0.9 | 7.18.16 | major |
+| @react-navigation/native | 6.0.6 | 7.3.17 | major |
+| @react-navigation/bottom-tabs | 6.0.9 | 7.18.17 | major |
 | react-native-safe-area-context | 4.5.0 | 5.9.1 | major |
 | react-native-screens | 3.20.0 | 4.27.0 | major |
 | react-native-reanimated | 3.4.2 | 4.5.3 | major |
@@ -107,7 +109,7 @@
 - **ライブラリ**: 主要な公開 OSS の現在/最新と更新種別(major/minor/patch)
 
 ## 補足 / 自動取得の信頼性
-- Android 期限: スクレイプ解析が不十分なため fallback 値を使用（要手動確認） / source: https://developer.android.com/google/play/requirements/target-sdk
+- Android 期限: スクレイプ成功 / source: https://developer.android.com/google/play/requirements/target-sdk
 - Apple 期限: スクレイプ成功 / source: https://developer.apple.com/news/upcoming-requirements/
 - 最新版（Expo SDK / RN / React / ライブラリ）: Expo API + npm registry
 - Gradle 最新版: https://services.gradle.org/versions/current
