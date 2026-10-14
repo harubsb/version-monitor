@@ -1,5 +1,5 @@
 # 📱 バージョン使用期限ステータス
-最終更新: **2026-10-13 15:04 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
+最終更新: **2026-10-14 13:07 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
 
 ## ストア要件・最新版（共通・自動取得）
 - Android Target SDK 必須: API 35（期限 2025-08-31）
@@ -11,7 +11,7 @@
 > 申請・ビルドができなくなる可能性がある項目です。**赤字の行＝要対応**。早めの更新を。
 
 ```diff
-- アプリB / Android Target SDK: 現在 33 → 必須 API 35 / 期限 2025-08-31 / 超過408日（申請不可の可能性）
+- アプリB / Android Target SDK: 現在 33 → 必須 API 35 / 期限 2025-08-31 / 超過409日（申請不可の可能性）
 ```
 
 要確認（現在値が未設定で判定できない・期限あり）:
@@ -37,10 +37,10 @@
 ライブラリ更新状況:
 | パッケージ | 現在 | 最新 | 種別 |
 |------|------|------|------|
-| @react-navigation/native | 6.0.6 | 7.5.0 | major |
-| @react-navigation/bottom-tabs | 6.0.9 | 7.20.0 | major |
+| @react-navigation/native | 6.0.6 | 7.5.1 | major |
+| @react-navigation/bottom-tabs | 6.0.9 | 7.21.0 | major |
 | react-native-safe-area-context | 4.12.0 | 5.10.1 | major |
-| react-native-screens | 4.4.0 | 4.29.0 | minor |
+| react-native-screens | 4.4.0 | 4.30.0 | minor |
 
 ## アプリA_K
 | 項目 | 現在 | 推奨(最新) | 使用期限 | 状態 |
@@ -60,10 +60,10 @@
 ライブラリ更新状況:
 | パッケージ | 現在 | 最新 | 種別 |
 |------|------|------|------|
-| @react-navigation/native | 7.0.13 | 7.5.0 | minor |
-| @react-navigation/bottom-tabs | 7.1.3 | 7.20.0 | minor |
+| @react-navigation/native | 7.0.13 | 7.5.1 | minor |
+| @react-navigation/bottom-tabs | 7.1.3 | 7.21.0 | minor |
 | react-native-safe-area-context | 5.4.0 | 5.10.1 | minor |
-| react-native-screens | 4.10.0 | 4.29.0 | minor |
+| react-native-screens | 4.10.0 | 4.30.0 | minor |
 | react-native-reanimated | 3.17.4 | 4.7.1 | major |
 | react-native-gesture-handler | 2.24.0 | 3.3.0 | major |
 
@@ -74,7 +74,7 @@
 | React Native | 0.71.6 | 0.88.0-rc.4 | — | 🟡 |
 | React | 18.2.0 | 19.3.0 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 33 | 35 | 2025-08-31 (超過(408日前)) | ⚫ |
+| Android Target SDK | 33 | 35 | 2025-08-31 (超過(409日前)) | ⚫ |
 | Android minSdk | 21 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.6.0 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | 7.3.1 | — | 参考（ビルドツールチェーン） | ℹ️ |
@@ -85,10 +85,10 @@
 ライブラリ更新状況:
 | パッケージ | 現在 | 最新 | 種別 |
 |------|------|------|------|
-| @react-navigation/native | 6.0.6 | 7.5.0 | major |
-| @react-navigation/bottom-tabs | 6.0.9 | 7.20.0 | major |
+| @react-navigation/native | 6.0.6 | 7.5.1 | major |
+| @react-navigation/bottom-tabs | 6.0.9 | 7.21.0 | major |
 | react-native-safe-area-context | 4.5.0 | 5.10.1 | major |
-| react-native-screens | 3.20.0 | 4.29.0 | major |
+| react-native-screens | 3.20.0 | 4.30.0 | major |
 | react-native-reanimated | 3.4.2 | 4.7.1 | major |
 | react-native-gesture-handler | 2.12.1 | 3.3.0 | major |
 
