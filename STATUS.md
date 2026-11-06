@@ -1,5 +1,5 @@
 # 📱 バージョン使用期限ステータス
-最終更新: **2026-11-05 14:47 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
+最終更新: **2026-11-06 14:44 JST**（自動(毎日)） ／ 自動更新: 毎日 JST 9:00 頃
 
 ## ストア要件・最新版（共通・自動取得）
 - Android Target SDK 必須: API 36（期限 2026-11-01）
@@ -11,9 +11,9 @@
 > 申請・ビルドができなくなる可能性がある項目です。**赤字の行＝要対応**。早めの更新を。
 
 ```diff
-- アプリA / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / 超過4日（申請不可の可能性）
-- アプリA_K / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / 超過4日（申請不可の可能性）
-- アプリB / Android Target SDK: 現在 33 → 必須 API 36 / 期限 2026-11-01 / 超過4日（申請不可の可能性）
+- アプリA / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / 超過5日（申請不可の可能性）
+- アプリA_K / Android Target SDK: 現在 35 → 必須 API 36 / 期限 2026-11-01 / 超過5日（申請不可の可能性）
+- アプリB / Android Target SDK: 現在 33 → 必須 API 36 / 期限 2026-11-01 / 超過5日（申請不可の可能性）
 ```
 
 要確認（現在値が未設定で判定できない・期限あり）:
@@ -28,7 +28,7 @@
 | React Native | 0.76.6 | 0.88.1 | — | 🟡 |
 | React | 18.3.1 | 19.3.0 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 35 | 36 | 2026-11-01 (超過(4日前)) | ⚫ |
+| Android Target SDK | 35 | 36 | 2026-11-01 (超過(5日前)) | ⚫ |
 | Android minSdk | 24 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.9.24 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
@@ -51,7 +51,7 @@
 | React Native | 0.79.2 | 0.88.1 | — | 🟡 |
 | React | 19.0.0 | 19.3.0 | — | 🟡 |
 | New Architecture | 有効 | 有効 | 対応済み | 🟢 |
-| Android Target SDK | 35 | 36 | 2026-11-01 (超過(4日前)) | ⚫ |
+| Android Target SDK | 35 | 36 | 2026-11-01 (超過(5日前)) | ⚫ |
 | Android minSdk | — | — | 参考（低いほど対応端末が広い） | ⚪ |
 | Kotlin | — | — | 参考（ビルドツールチェーン） | ⚪ |
 | Android Gradle Plugin | —（Expo管理/未固定） | — | 参考（ビルドツールチェーン） | ⚪ |
@@ -67,7 +67,7 @@
 | react-native-safe-area-context | 5.4.0 | 5.11.1 | minor |
 | react-native-screens | 4.10.0 | 4.30.1 | minor |
 | react-native-reanimated | 3.17.4 | 4.7.1 | major |
-| react-native-gesture-handler | 2.24.0 | 3.4.0 | major |
+| react-native-gesture-handler | 2.24.0 | 3.5.0 | major |
 
 ## アプリB
 | 項目 | 現在 | 推奨(最新) | 使用期限 | 状態 |
@@ -76,7 +76,7 @@
 | React Native | 0.71.6 | 0.88.1 | — | 🟡 |
 | React | 18.2.0 | 19.3.0 | — | 🟡 |
 | New Architecture | 無効 | 有効 | 将来必須化の見込み（要計画） | 🟡 |
-| Android Target SDK | 33 | 36 | 2026-11-01 (超過(4日前)) | ⚫ |
+| Android Target SDK | 33 | 36 | 2026-11-01 (超過(5日前)) | ⚫ |
 | Android minSdk | 21 | — | 参考（低いほど対応端末が広い） | ℹ️ |
 | Kotlin | 1.6.0 | — | 参考（ビルドツールチェーン） | ℹ️ |
 | Android Gradle Plugin | 7.3.1 | — | 参考（ビルドツールチェーン） | ℹ️ |
@@ -92,7 +92,7 @@
 | react-native-safe-area-context | 4.5.0 | 5.11.1 | major |
 | react-native-screens | 3.20.0 | 4.30.1 | major |
 | react-native-reanimated | 3.4.2 | 4.7.1 | major |
-| react-native-gesture-handler | 2.12.1 | 3.4.0 | major |
+| react-native-gesture-handler | 2.12.1 | 3.5.0 | major |
 
 ## 凡例
 🟢 余裕 / 🟡 警告 / 🔴 危険 / ⚫ 期限超過 / ⚪ 未設定・不明 / ℹ️ 参考情報（良し悪しの判定なし）
